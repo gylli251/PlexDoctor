@@ -3,8 +3,7 @@ import json
 import os
 from os import path
 from plexapi.myplex import MyPlexAccount
-from logger import log
-
+from utils.logger import log
 
 CONFIG_FILE = "plex_doctor_config.json"
 DOCKER = "docker"
@@ -21,7 +20,7 @@ def set_config():
             except Exception:
                 log.error("Config file not formatted correctly")
     else:
-        log.error("Config file not found")
+        log.error(f"[{CONFIG_FILE}] not found")
         exit()
     return config
 
@@ -31,7 +30,7 @@ def restart_docker():
     subprocess.run("docker", "restart", "plex", shell=True)
 
 
-def restart_windows(plex_path):
+def restart_windows(plex_path):  # Not implemented fully need test cases.
     log.info("Killing Plex...")
     os.system("taskkill /f /im  \"Plex Media Server.exe\" >nul 2>&1")
     log.info("Starting Plex...")
@@ -39,9 +38,10 @@ def restart_windows(plex_path):
     subprocess.Popen(["Plex Media Server.exe"])
 
 
-def restart_linux(plex_path):
+def restart_linux(plex_path):  # Not implemented fully need test cases.
     log.info("Rebooting Plex...")
     subprocess.run(plex_path, "plexmediaserver", "restart", shell=True)
+
 
 def test_health_plex_and_reboot(servername, os):
     try:
@@ -57,6 +57,7 @@ def test_health_plex_and_reboot(servername, os):
             restart_windows(config["plex_path"])
         if os == LINUX:
             restart_linux(config["plex_path"])
+
 
 config = set_config()
 account = MyPlexAccount(config["username"], config["password"])
