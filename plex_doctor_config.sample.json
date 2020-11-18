@@ -1,0 +1,7 @@
+{
+    "username": "email@email.com",
+    "password": "password1234",
+    "servername": "Your server name incase you have more then one connected to your account",
+    "os" : "docker or windows or linux",
+    "plex_path_location" : "path to your plexmediaserver, ONLY NEED TO USE THIS IF YOU HAVE LINUX OR WINDOWS"
+  }

@@ -123,3 +123,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+plex_doctor_config.json
