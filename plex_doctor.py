@@ -27,7 +27,10 @@ def set_config():
 
 def restart_docker():
     log.info("Restarting container...")
-    subprocess.run("docker restart plex", shell=True)
+    result = subprocess.run("docker restart plex", shell=True, capture_output=True)
+    if result.returncode != 0:
+        log.error(f"Failed restarting container {result.stderr}")
+        exit()
 
  
 def restart_windows(plex_path):  # Not implemented fully need test cases.
@@ -40,7 +43,7 @@ def restart_windows(plex_path):  # Not implemented fully need test cases.
 
 def restart_linux(plex_path):  # Not implemented fully need test cases.
     log.info("Rebooting Plex...")
-    subprocess.run(plex_path, "plexmediaserver", "restart", shell=True)
+    subprocess.run(plex_path, "plexmediaserver", "restart", shell=True) #NEED TO FIX
 
 
 def test_health_plex_and_reboot(servername, os):
