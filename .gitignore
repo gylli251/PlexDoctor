@@ -125,3 +125,5 @@ dmypy.json
 .pyre/
 plex_doctor_config.json
 logger.py
+.vscode/settings.json
+Pipfile

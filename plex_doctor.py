@@ -23,7 +23,7 @@ def set_config():
         log.error(f"[{CONFIG_FILE}] not found")
         exit()
     return config
-
+ 
 
 def restart_docker():
     log.info("Restarting container...")

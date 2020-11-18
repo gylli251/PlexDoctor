@@ -1,4 +1,4 @@
-#import coloredlogs
+import coloredlogs
 import logging
 import os
 
@@ -19,4 +19,4 @@ stream_handler.setFormatter(
 
 log.addHandler(stream_handler)
 
-#coloredlogs.install(LOGLEVEL, logger=log)
+coloredlogs.install(LOGLEVEL, logger=log)
