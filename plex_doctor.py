@@ -27,12 +27,14 @@ def set_config():
 
 def restart_docker():
     log.info("Restarting container...")
-    result = subprocess.run("docker restart plex", shell=True, capture_output=True)
+    result = subprocess.run(["docker", "restart", "plex"], capture_output=True)
     if result.returncode != 0:
         log.error(f"Failed restarting container {result.stderr}")
         exit()
+    else:
+        log.info("Successfully restarted container... ITS ALIVE")
 
- 
+
 def restart_windows(plex_path):  # Not implemented fully need test cases.
     log.info("Killing Plex...")
     os.system("taskkill /f /im  \"Plex Media Server.exe\" >nul 2>&1")
