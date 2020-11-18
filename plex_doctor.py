@@ -49,7 +49,7 @@ def test_health_plex_and_reboot(servername, os):
         plex = account.resource(servername).connect(timeout=10)
         plex.library.section('TV - Trending')
         log.info("Plex is up!")
-    except:
+    except Exception:
         log.error("Plex is down!")
         if os == DOCKER:
             restart_docker()
