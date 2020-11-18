@@ -46,7 +46,7 @@ def restart_linux(plex_path):  # Not implemented fully need test cases.
 def test_health_plex_and_reboot(servername, os):
     try:
         log.info("Connecting to Plex...")
-        plex = account.resource(servername).connect(timeout=10)
+        plex = account.resource(servername).connect(timeout=8)
         plex.library.section('TV - Trending')
         log.info("Plex is up!")
     except Exception:
