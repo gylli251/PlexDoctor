@@ -11,4 +11,3 @@
 - Read from logs what went wrong with plex and notify user
 - Scheduling so we can run it as a service
 - Check for more things that could be going wrong. Possible to test a short video transcode/direct stream?
-- 
