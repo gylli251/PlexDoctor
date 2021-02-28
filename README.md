@@ -1,5 +1,6 @@
-https://i.imgur.com/hwqOLnh.gif
-
+<p align="center">
+    <a href="google.com"><img src="https://i.imgur.com/hwqOLnh.gif" /></a>
+</p>
 # PLEX DOCTOR
 - Checks if plex is alive and well if not -> Restart
 - MORE ON THE WAY
