@@ -11,6 +11,7 @@
 ## Requirements 
 - Python 3.7+
 - Plex account connected to a server :)
+- plexapi module - pip install plexapi
 
 
 ## Plans to add
