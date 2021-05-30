@@ -9,8 +9,8 @@
 - More?
 
 ## Requirements 
-- Plex 3.8 or above
 - Python 3.7+
+- Plex account connected to a server :)
 
 
 ## Plans to add
