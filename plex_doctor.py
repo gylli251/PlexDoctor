@@ -49,19 +49,34 @@ def restart_linux(plex_path):  # Not implemented fully need test cases.
 
 
 def test_health_plex_and_reboot(servername, os):
-    try:
-        log.info("Connecting to Plex...")
-        plex = account.resource(servername).connect(timeout=8)
-        plex.library.section('TV - Trending')
-        log.info("Plex is up!")
-    except Exception:
-        log.error("Plex is down!")
+    log.info("Getting servers from plex...")
+    plex = account.resource(servername).connect(timeout=8)
+    if plex is None:
+        log.error("Failed connecting to any valid Plex server on account.")
+        log.info("Rebooting...")
         if os == DOCKER:
             restart_docker()
         if os == WINDOWS:
             restart_windows(config["plex_path"])
         if os == LINUX:
             restart_linux(config["plex_path"])
+    else:
+        try:
+            log.info("Successfully connected to plex server doing healthcheck...")
+            plexlibaries = plex.library.sections()
+            title = plexlibaries[0].title
+            plex.library.section(title)
+            log.info("Plex is up!")
+        except Exception:
+            log.error("Health check failed...")
+            log.info("Rebooting...")
+            if os == DOCKER:
+                restart_docker()
+            if os == WINDOWS:
+                restart_windows(config["plex_path"])
+            if os == LINUX:
+                restart_linux(config["plex_path"])
+
 
 
 config = set_config()
