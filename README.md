@@ -1,6 +1,6 @@
 # PLEX DOCTOR
 - Connects to plex to get a list of servers that are associated with the account set in the config.
-- Tries connceting to the server, if any are successful it tries to do healthcheck.
+- Tries connecting to the server, if any are successful it tries to do healthcheck.
 - if healthcheck is invalid it tries to reboot.
 
 
